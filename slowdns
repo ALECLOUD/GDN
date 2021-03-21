@@ -28,7 +28,7 @@ echo -e "${RED}$banner${SCOLOR}"
     mv slowdns $PREFIX/bin/slowdns
     chmod +x $PREFIX/bin/slowdns
     [[ $(grep -c 'slowdns' $PREFIX/etc/profile) == '0' ]] && echo 'slowdns' >> $PREFIX/etc/profile
-    echo -e "\n${GREEN}BAIXANDO O SCRIPT POR FAVOR AGUARDE! ${SCOLOR}"
+    echo -e "\n${GREEN}BAIXANDO O SCRIPT. POR FAVOR AGUARDE! ${SCOLOR}"
     curl -O https://sshplus.net/scripts/dns > /dev/null 2>&1
     echo -e "\n${RED}[${YELLOW}!${RED}] ${YELLOW}SCRIPT BAIXADO! DA PRÓXIMA VEZ,\nEXECULTE APENAS O COMANDO: ${RED}(${GREEN}slowdns${RED})\n${YELLOW}MESMO QUE ESTEJA OFFLINE!${SCOLOR}"
     chmod +x dns
@@ -60,8 +60,6 @@ echo -e "${RED}$banner${SCOLOR}"
     ns=$(sed -n 1p $HOME/credenciais)
     chave=$(sed -n 2p $HOME/credenciais)
 }
-echo -ne "\n${RED}[${YELLOW}!${RED}] ${YELLOW}PARA CONTINUAR, CERTIFIQUE-SE DE\nESTAR APENAS COM OS ${RED}(${YELLOW}DADOS MÓVEIS${RED})\n${YELLOW}ATIVADO. ${GREEN}ENTER ${YELLOW}PARA CONTINUAR.. ${SCOLOR}"; read
+#echo -ne "\n${RED}[${YELLOW}!${RED}] ${GREEN}ENTER ${YELLOW}PARA CONTINUAR"; read
 $HOME/dns -udp 8.8.8.8:53 -pubkey ${chave} ${ns} 127.0.0.1:2222 > /dev/null 2>&1 &
-echo -e "\n${RED}[${GREEN}√${RED}]${SCOLOR} - ${GREEN}SLOWDNS INICIADO!${SCOLOR} - ${RED}[${GREEN}√${RED}]\n\n${RED}[${YELLOW}!${RED}] ${YELLOW}AGORA CONECTE-SE EM UM APP VPN\nOU CLICK EM: ${GREEN}ENTER ${RED}PARA DESCONECTAR. ${SCOLOR}"; read
-piddns=$(ps x| grep -w 'dns' | grep -v 'grep'| awk -F' ' {'print $1'})
-[[ ${piddns} != '' ]] && kill ${piddns} > /dev/null 2>&1
+echo -e "\n${RED}[${GREEN}√${RED}]${SCOLOR} - ${GREEN}SLOWDNS INICIADO!${SCOLOR} - ${RED}[${GREEN}√${RED}]\n\n${RED}[${YELLOW}!${RED}] ${YELLOW}CONECTE-SE NO APP";
