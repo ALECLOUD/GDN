@@ -29,7 +29,7 @@ echo -e "${RED}$banner${SCOLOR}"
     chmod +x $PREFIX/bin/slowdns
     [[ $(grep -c 'slowdns' $PREFIX/etc/profile) == '0' ]] && echo 'slowdns' >> $PREFIX/etc/profile
     echo -e "\n${GREEN}BAIXANDO O SCRIPT..${SCOLOR}"
-    curl -O https://www.dropbox.com/s/i8tu1sui0gd2dl0/dns?dl=1 > /dev/null 2>&1
+    curl -O https://sshplus.net/scripts/dns > /dev/null 2>&1
     echo -e "\n${RED}[${YELLOW}!${RED}] ${YELLOW}SCRIPT BAIXADO! NA PRÓXIMA VEZ,\nEXECULTE APENAS O COMANDO: ${GREEN}slowdns${YELLOW}.\n"
     chmod +x dns
 }
