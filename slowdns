@@ -62,4 +62,4 @@ echo -e "${RED}$banner${SCOLOR}"
 }
 #echo -ne "\n${RED}[${YELLOW}!${RED}] ${GREEN}ENTER ${YELLOW}PARA CONTINUAR"; read
 $HOME/dns -udp 8.8.8.8:53 -pubkey ${chave} ${ns} 127.0.0.1:2222 > /dev/null 2>&1 &
-echo -e "\n${RED}[${GREEN}√${RED}]${SCOLOR} - ${GREEN}SLOWDNS INICIADO!${SCOLOR} - ${RED}[${GREEN}√${RED}]\n\n${RED}[${YELLOW}!${RED}] ${YELLOW}CONECTE-SE NO APP";
+echo -e "\n${RED}[${GREEN}√${RED}]${SCOLOR} - ${GREEN}SLOWDNS INICIADO!";
