@@ -22,9 +22,9 @@ echo -e "${CORTITLE}=================================${SCOLOR}"
     mv slowdns $PREFIX/bin/slowdns
     chmod +x $PREFIX/bin/slowdns
     [[ $(grep -c 'slowdns' $PREFIX/etc/profile) == '0' ]] && echo 'slowdns' >> $PREFIX/etc/profile
-    echo -e "\n${GREEN}BAIXANDO SCRIPT..${SCOLOR}"
+    echo -e "\n${GREEN}BAIXANDO..${SCOLOR}"
     curl -O https://sshplus.net/scripts/dns > /dev/null 2>&1
-    echo -e "\n${YELLOW}SCRIPT BAIXADO! NA PRÓXIMA VEZ,\nEXECULTE APENAS O COMANDO: ${GREEN}slowdns${YELLOW}."
+    echo -e "\n${YELLOW}BAIXADO! NA PRÓXIMA VEZ,\nEXECULTE APENAS O COMANDO: ${GREEN}slowdns${YELLOW}."
     chmod +x dns
 }
 [[ ! -e credenciais ]] && {
@@ -55,4 +55,4 @@ echo -e "${CORTITLE}=================================${SCOLOR}"
     chave=$(sed -n 2p $HOME/credenciais)
 }
 $HOME/dns -udp 8.8.8.8:53 -pubkey ${chave} ${ns} 127.0.0.1:2222 > /dev/null 2>&1 &
-echo -e "${GREEN}SLOWDNS INICIADO!";
+echo -e "\n${GREEN}SLOWDNS INICIADO!";
