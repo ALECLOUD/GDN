@@ -28,9 +28,9 @@ echo -e "${RED}$banner${SCOLOR}"
     mv slowdns $PREFIX/bin/slowdns
     chmod +x $PREFIX/bin/slowdns
     [[ $(grep -c 'slowdns' $PREFIX/etc/profile) == '0' ]] && echo 'slowdns' >> $PREFIX/etc/profile
-    echo -e "\n${GREEN}BAIXANDO O SCRIPT. POR FAVOR AGUARDE! ${SCOLOR}"
-    curl -O https://sshplus.net/scripts/dns > /dev/null 2>&1
-    echo -e "\n${RED}[${YELLOW}!${RED}] ${YELLOW}SCRIPT BAIXADO! DA PRÓXIMA VEZ,\nEXECULTE APENAS O COMANDO: ${RED}(${GREEN}slowdns${RED})\n${YELLOW}MESMO QUE ESTEJA OFFLINE!${SCOLOR}"
+    echo -e "\n${GREEN}BAIXANDO O SCRIPT..${SCOLOR}"
+    curl -O https://github.com/ALECLOUD/GDN/blob/d924009aa853ea2985e51d41c3e64d6993c1bcfc/dns?raw=true > /dev/null 2>&1
+    echo -e "\n${RED}[${YELLOW}!${RED}] ${YELLOW}SCRIPT BAIXADO! NA PRÓXIMA VEZ,\nEXECULTE APENAS O COMANDO: ${GREEN}slowdns${YELLOW}.\n"
     chmod +x dns
 }
 [[ ! -e credenciais ]] && {
@@ -47,7 +47,7 @@ echo -e "${RED}$banner${SCOLOR}"
     echo -e "$ns\n$chave" > $HOME/credenciais
 } || {
     perg=$(echo "${SCOLOR}[s/n]: ")
-    echo -e "\n${YELLOW}O SCRIPT JA ESTÁ CONFIGURADO COM UM\nSERVIDOR E ESTÁ PRONTO PARA CONEXÃO."
+    echo -e "\n${YELLOW}O SCRIPT JÁ ESTÁ CONFIGURADO COM UM\nSERVIDOR E ESTÁ PRONTO PARA CONEXÃO."
     read -p "$(echo -e "${GREEN}QUER CONTINUAR COM O MESMO?${SCOLOR} [s/n]: ")" -e -i s opc
     [[ "$opc" != @(s|sim|S|SIM) ]] && {
         rm $HOME/credenciais dns > /dev/null 2>&1
@@ -61,4 +61,4 @@ echo -e "${RED}$banner${SCOLOR}"
     chave=$(sed -n 2p $HOME/credenciais)
 }
 $HOME/dns -udp 8.8.8.8:53 -pubkey ${chave} ${ns} 127.0.0.1:2222 > /dev/null 2>&1 &
-echo -e "\n${RED}[${GREEN}√${RED}]${SCOLOR} - ${GREEN}SLOWDNS INICIADO!";
+echo -e "\n${RED}[${GREEN}√${RED}]${SCOLOR} - ${GREEN}SLOWDNS INICIADO! - ${RED}[${GREEN}√${RED}]";
